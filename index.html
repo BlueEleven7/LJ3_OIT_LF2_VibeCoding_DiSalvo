@@ -1,746 +1,779 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>67Megasport - Outdoor-HIIT Training Liestal</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            background-color: #f8f9fa;
-        }
-
-        /* ========== HEADER ========== */
-        header {
-            background-color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: #3498db;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #3498db;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* ========== HERO SECTION ========== */
-        .hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 8rem 2rem;
-            text-align: center;
-            margin-bottom: 0;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: 2px solid #3498db;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        /* ========== MAIN CONTENT ========== */
-        main {
-            background-color: white;
-        }
-
-        section {
-            padding: 5rem 2rem;
-            border-bottom: 1px solid #ecf0f1;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        section > p:first-of-type {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            margin-bottom: 2rem;
-            max-width: 700px;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        /* ========== ABOUT SECTION ========== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-text ul {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .about-text li {
-            padding: 0.8rem 0;
-            font-size: 1.05rem;
-            color: #2c3e50;
-            border-bottom: 1px solid #ecf0f1;
-        }
-
-        .about-text li:last-child {
-            border-bottom: none;
-        }
-
-        .about-image {
-            text-align: center;
-            font-size: 5rem;
-        }
-
-        .mission-box {
-            background-color: #f0f7ff;
-            padding: 2rem;
-            border-radius: 4px;
-            border-left: 4px solid #3498db;
-            margin-top: 2rem;
-        }
-
-        .mission-box p {
-            font-style: italic;
-            color: #2c3e50;
-            line-height: 1.8;
-        }
-
-        /* ========== TRAINING SECTION ========== */
-        .training-intro {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            margin-bottom: 3rem;
-        }
-
-        .training-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .training-card {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 4px;
-            border-top: 3px solid #3498db;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .training-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.15);
-        }
-
-        .training-card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .training-card h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .training-card p {
-            font-size: 0.95rem;
-            color: #600;
-            line-height: 1.6;
-        }
-
-        /* ========== PHILOSOPHY SECTION ========== */
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .philosophy-item {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 4px;
-            border-left: 4px solid #3498db;
-            transition: all 0.3s ease;
-        }
-
-        .philosophy-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transform: translateX(5px);
-        }
-
-        .philosophy-item-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .philosophy-item h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .philosophy-item p {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* ========== DATA SECTION ========== */
-        .datawrapper-container {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-
-        iframe {
-            border-radius: 4px;
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .school-notice {
-            background-color: #3498db;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-            opacity: 0.9;
-        }
-
-        .footer-links {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        footer a {
-            color: #3498db;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* ========== GALLERY ========== */
-        .gallery-container {
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 1px solid #ecf0f1;
-        }
-
-        .gallery-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-            background-color: #ecf0f1;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* ========== MODAL STYLES ========== */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 4px;
-            width: 90%;
-            max-width: 900px;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 1rem;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            color: #2c3e50;
-            font-size: 2rem;
-        }
-
-        .close-btn {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #7f8c8d;
-            cursor: pointer;
-            background: none;
-            border: none;
-            transition: color 0.3s ease;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #e74c3c;
-        }
-
-        /* ========== DATA BUTTON ========== */
-        .data-section-button {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: 2px solid #3498db;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-
-        .data-section-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1.5rem;
-                justify-content: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-            }
-
-            .about-grid,
-            .training-grid,
-            .philosophy-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .training-grid {
-                gap: 1.5rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>67Megasport – Outdoor HIIT Training Liestal</title>
+  <meta name="description" content="67Megasport – Outdoor HIIT Training am Gestadeck in Liestal. Funktionell, intensiv, modern. Schulprojekt." />
+
+  <style>
+    :root{
+      --bg0:#070A0F;
+      --bg1:#0A0F18;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --stroke: rgba(255,255,255,.12);
+      --stroke2: rgba(255,255,255,.18);
+      --text:#EAF1FF;
+      --muted: rgba(234,241,255,.72);
+      --accent:#00E5A8;
+      --accent2:#00A7FF;
+      --hot:#FF4D6D;
+      --shadow: 0 18px 70px rgba(0,0,0,.45);
+      --r: 22px;
+      --r2: 16px;
+      --max: 1150px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family: var(--font);
+      color: var(--text);
+      line-height: 1.65;
+      background:
+        radial-gradient(1100px 700px at 10% 0%, rgba(0,229,168,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(0,167,255,.18), transparent 55%),
+        radial-gradient(700px 500px at 60% 100%, rgba(255,77,109,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg0) 70%);
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{ max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+
+    .blob{
+      position: fixed;
+      width: 520px; height: 520px;
+      filter: blur(40px);
+      opacity: .35;
+      border-radius: 999px;
+      z-index: -2;
+      pointer-events:none;
+      mix-blend-mode: screen;
+      animation: drift 18s ease-in-out infinite;
+    }
+    .blob.b1{
+      left: -160px; top: -180px;
+      background: radial-gradient(circle at 30% 30%, rgba(0,229,168,.95), transparent 55%);
+      animation-duration: 22s;
+    }
+    .blob.b2{
+      right: -180px; top: -160px;
+      background: radial-gradient(circle at 40% 40%, rgba(0,167,255,.95), transparent 55%);
+      animation-duration: 20s;
+      animation-delay: -6s;
+    }
+    .blob.b3{
+      left: 35%; bottom: -240px;
+      background: radial-gradient(circle at 40% 40%, rgba(255,77,109,.75), transparent 60%);
+      animation-duration: 26s;
+      animation-delay: -10s;
+    }
+    @keyframes drift{
+      0%,100% { transform: translate3d(0,0,0) scale(1); }
+      40% { transform: translate3d(40px, 30px, 0) scale(1.08); }
+      70% { transform: translate3d(-20px, 35px, 0) scale(0.98); }
+    }
+
+    .progress{
+      position: fixed; top:0; left:0;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,229,168,.18);
+    }
+
+    header{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,15,.60);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 18px; padding: 14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 12px;
+      font-weight: 900; letter-spacing: -0.6px;
+    }
+    .brandMark{
+      width: 42px; height: 42px; border-radius: 16px;
+      display:grid; place-items:center;
+      color:#071019; font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 18px 45px rgba(0,229,168,.16);
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    nav a{
+      color: var(--muted);
+      font-weight: 780;
+      font-size: .95rem;
+      padding: 10px 12px;
+      border-radius: 14px;
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+    }
+    nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-1px);
+    }
+    nav .cta{
+      color:#061018;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 18px 45px rgba(0,167,255,.15);
+    }
+    nav .cta:hover{
+      transform: translateY(-1px) scale(1.01);
+      background: linear-gradient(135deg, rgba(0,229,168,.95), rgba(0,167,255,.95));
+    }
+
+    section{ padding: 58px 0; border-top: 1px solid var(--stroke); }
+    .hero{ padding: 62px 0 18px; border-top: none; }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid var(--stroke);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+    }
+
+    .heroMain{ padding: 30px 28px 20px; overflow:hidden; }
+    .kicker{
+      display:inline-flex; gap: 10px; align-items:center;
+      padding: 8px 12px; border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--stroke);
+      color: var(--muted);
+      font-weight: 850; font-size: .9rem;
+      letter-spacing: .2px;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(0,229,168,.14);
+    }
+
+    h1{
+      margin-top: 16px;
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      line-height: 1.06;
+      letter-spacing: -1.3px;
+    }
+    .lead{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 62ch;
+    }
+
+    .actions{
+      margin-top: 18px;
+      display:flex; gap: 12px;
+      flex-wrap: wrap; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap: 10px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-weight: 900;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+      user-select:none;
+      cursor: pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    }
+    .btnPrimary{
+      border: 0;
+      color:#061018;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+
+    .stats{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .stat{
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--stroke);
+    }
+    .stat b{ font-size: 1.05rem; }
+    .stat span{ display:block; color: var(--muted); font-size: .9rem; margin-top: 2px; }
+
+    .heroVisual{ padding: 18px; overflow:hidden; }
+    .visualGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .ph{
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      aspect-ratio: 1 / 1;
+      position: relative;
+    }
+    .ph img{
+      width:100%; height:100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform .35s ease;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .ph:hover img{ transform: scale(1.08); }
+    .tag{
+      position:absolute;
+      left: 10px; bottom: 10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.38);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(12px);
+      font-weight: 900;
+      color: rgba(234,241,255,.92);
+      font-size: .85rem;
+    }
+    .schoolBadge{
+      margin-top: 12px;
+      display:inline-flex; gap: 10px; align-items:center;
+      padding: 10px 12px; border-radius: 999px;
+      background: rgba(0,167,255,.10);
+      border: 1px solid rgba(0,167,255,.25);
+      color: rgba(234,241,255,.88);
+      font-weight: 850;
+    }
+
+    .head{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap: 14px; flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .head h2{
+      font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+      letter-spacing: -1px;
+    }
+    .head p{ max-width: 78ch; color: var(--muted); }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .panel{
+      padding: 20px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 14px 50px rgba(0,0,0,.28);
+    }
+
+    .list{ list-style:none; display:grid; gap: 10px; margin-top: 12px; }
+    .li{
+      display:flex; gap: 10px; align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--stroke);
+      color: var(--muted);
+      font-weight: 780;
+    }
+    .li b{ color: var(--text); }
+    .icon{
+      width: 40px; height: 40px; border-radius: 16px;
+      display:grid; place-items:center;
+      background: rgba(0,0,0,.18);
+      border: 1px solid var(--stroke);
+      flex: 0 0 auto;
+    }
+
+    .quote{
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: var(--r);
+      background: linear-gradient(135deg, rgba(0,229,168,.12), rgba(0,167,255,.10));
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .quote small{ display:block; margin-top: 8px; color: var(--muted); font-weight: 850; }
+
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .mini{
+      padding: 18px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--stroke);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .mini:hover{ transform: translateY(-3px); background: rgba(255,255,255,.07); }
+    .mini h3{ margin-top: 10px; font-size: 1.08rem; letter-spacing: -.4px; }
+    .mini p{ color: var(--muted); margin-top: 6px; }
+    .chip{ display:inline-flex; align-items:center; gap: 10px; font-weight: 900; }
+    .chip .dot2{
+      width: 10px; height:10px; border-radius:999px;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(0,167,255,.12);
+    }
+
+    .philosophy{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .phItem{
+      padding: 18px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--stroke);
+    }
+    .phItem h3{
+      display:flex; align-items:center; gap: 10px;
+      letter-spacing:-.5px; font-size: 1.05rem;
+    }
+    .phItem p{ color: var(--muted); margin-top: 8px; }
+
+    .embed{
+      border-radius: var(--r);
+      border: 1px solid var(--stroke);
+      overflow:hidden;
+      background: rgba(255,255,255,.04);
+    }
+    .embedPad{ padding: 10px; }
+
+    /* Contact form */
+    .formGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .field{ display:flex; flex-direction:column; gap: 8px; }
+    label{
+      font-weight: 850;
+      color: rgba(234,241,255,.88);
+      letter-spacing: -.2px;
+      font-size: .95rem;
+    }
+    input, textarea{
+      width:100%;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      outline: none;
+      transition: border .15s ease, background .15s ease;
+      font-family: var(--font);
+    }
+    input::placeholder, textarea::placeholder{ color: rgba(234,241,255,.45); }
+    input:focus, textarea:focus{
+      border-color: rgba(0,229,168,.55);
+      background: rgba(0,0,0,.28);
+    }
+    textarea{ min-height: 130px; resize: vertical; }
+    .full{ grid-column: 1 / -1; }
+    .formNote{ margin-top: 12px; color: var(--muted); font-weight: 700; font-size: .95rem; }
+    .toast{
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,229,168,.28);
+      background: rgba(0,229,168,.10);
+      color: rgba(234,241,255,.92);
+      font-weight: 850;
+      display:none;
+    }
+
+    .reveal{ opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.on{ opacity: 1; transform: translateY(0); }
+
+    footer{
+      padding: 34px 0 44px;
+      border-top: 1px solid var(--stroke);
+      color: var(--muted);
+    }
+    .footGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .footLink a{
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,.24);
+      text-underline-offset: 4px;
+    }
+    .footLink a:hover{ text-decoration-color: rgba(255,255,255,.55); }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      .blob{ animation:none; }
+      .reveal{ transition:none; transform:none; opacity:1; }
+      .btn:hover, nav a:hover, .mini:hover{ transform:none; }
+    }
+
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .cards3{ grid-template-columns: 1fr; }
+      .philosophy{ grid-template-columns: 1fr; }
+      .footGrid{ grid-template-columns: 1fr; }
+      .formGrid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body>
-    <!-- ========== HEADER ========== -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">67Megasport</a>
-                <nav>
-                    <ul>
-                        <li><a href="#about">Über mich</a></li>
-                        <li><a href="#training">Training</a></li>
-                        <li><a href="#philosophy">Philosophie</a></li>
-                        <li><a href="#schedule">Zeiten</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
 
-    <!-- ========== HERO ========== -->
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top">
+          <span class="brandMark">67</span>
+          <span>Megasport</span>
+        </a>
+
+        <nav>
+          <ul>
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#training">Training</a></li>
+            <li><a href="#philosophy">Philosophie</a></li>
+            <li><a href="#schedule">Zeiten</a></li>
+            <!-- ✅ jetzt echte zweite Seite -->
+            <li><a href="teilnehmer.html" class="cta">📊 Teilnehmerzahlen</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>67Megasport</h1>
-                <p>Funktionelles Outdoor-HIIT Training in Liestal</p>
-                <a href="#training" class="cta-button">Entdecken</a>
+      <div class="container">
+        <div class="heroGrid">
+          <div class="card heroMain reveal">
+            <div class="kicker"><span class="dot"></span> Outdoor HIIT • Gestadeck, Liestal</div>
+
+            <h1>Outdoor-HIIT, das dich<br/>wirklich weiterbringt.</h1>
+            <p class="lead">
+              67Megasport steht für funktionelles Training, klare Struktur und echte Energie – draussen, intensiv und modern.
+            </p>
+
+            <div class="actions">
+              <a class="btn btnPrimary" href="#training">⚡ Training entdecken</a>
+              <!-- ✅ Button auch auf zweite Seite -->
+              <a class="btn" href="teilnehmer.html">📊 Teilnehmerzahlen</a>
+              <a class="btn" href="#contact">✉️ Kontakt</a>
             </div>
+
+            <div class="stats">
+              <div class="stat"><b>HIIT</b><span>kurz & brutal effektiv</span></div>
+              <div class="stat"><b>Functional</b><span>Kraft • Ausdauer • Mobility</span></div>
+              <div class="stat"><b>Outdoor</b><span>Liestal – Gestadeck</span></div>
+            </div>
+          </div>
+
+          <aside class="card heroVisual reveal">
+            <div class="visualGrid">
+              <div class="ph">
+                <img alt="Outdoor Training" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80" />
+                <div class="tag">HIIT</div>
+              </div>
+
+              <div class="ph">
+                <img alt="Marathon Running" src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=900&q=80" />
+                <div class="tag">Marathon</div>
+              </div>
+
+              <div class="ph">
+                <img alt="Bodyweight Workout" src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=900&q=80" />
+                <div class="tag">Functional</div>
+              </div>
+
+              <div class="ph">
+                <!-- ✅ sportlicheres Community Bild -->
+                <img alt="Team Training" src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=900&q=80" />
+                <div class="tag">Team</div>
+              </div>
+            </div>
+
+            <div class="schoolBadge">📚 Diese Website ist ein Schulprojekt (Berufsausbildung)</div>
+          </aside>
         </div>
+      </div>
     </section>
 
-    <!-- ========== MAIN ========== -->
-    <main>
-        <!-- ========== ABOUT ========== -->
-        <section id="about">
-            <div class="container">
-                <h2>Über mich</h2>
-                <p>Kennenlerne Lara B., Gründerin von 67Megasport – eine leidenschaftliche Fitness-Trainerin mit Vision.</p>
-
-                <div class="about-grid">
-                    <div>
-                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Ich bin <strong>Lara B.</strong>, 25 Jahre alt und Gründerin von 67Megasport. Meine Leidenschaft ist es, Menschen durch intensives und funktionelles Training zu unterstützen – draußen, in der Natur, ohne Umschweife.</p>
-
-                        <h3>Mein Hintergrund</h3>
-                        <ul>
-                            <li>📚 Studium der Sportwissenschaft</li>
-                            <li>🏃 Langstreckenläuferin und Marathon-Absolventin</li>
-                            <li>💪 Spezialisiert auf funktionelles Outdoor-Training</li>
-                            <li>🎯 Trainerin für Outdoor-HIIT in Liestal</li>
-                        </ul>
-
-                        <div class="mission-box">
-                            <p><strong>Meine Mission:</strong> „Mit 67Megasport helfe ich dir, deinen Körper zu transformieren und deine mentale Stärke zu entwickeln – immer draußen, immer intensiv, immer authentisch."</p>
-                        </div>
-
-                        <div class="gallery-container">
-                            <div class="gallery-title">Training in Aktion</div>
-                            <div class="gallery-grid">
-                                <div class="gallery-item">
-                                    <img src="images/lara1.jpg" alt="Lara beim HIIT-Training">
-                                </div>
-                                <div class="gallery-item">
-                                    <img src="images/lara2.jpg" alt="Lara trainiert mit den Teilnehmern">
-                                </div>
-                                <div class="gallery-item">
-                                    <img src="images/lara3.jpg" alt="Lara leitet ein HIIT-Workout">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-image">
-                        💪🏃⚡
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== TRAINING ========== -->
-        <section id="training">
-            <div class="container">
-                <h2>Das Training</h2>
-                <p class="training-intro">High-Intensity Interval Training im Freien – funktionell, intensiv und wirkungsvoll</p>
-
-                <div class="training-grid">
-                    <div class="training-card">
-                        <div class="training-card-icon">🏋️</div>
-                        <h3>Funktional</h3>
-                        <p>Bewegungen, die deinen Körper im Alltag braucht. Kraft, Ausdauer und Beweglichkeit in Einklang.</p>
-                    </div>
-                    <div class="training-card">
-                        <div class="training-card-icon">🌳</div>
-                        <h3>Outdoor</h3>
-                        <p>Am Gestadeck in Liestal. Frische Luft, Natur und eine inspirierende Trainingsumgebung.</p>
-                    </div>
-                    <div class="training-card">
-                        <div class="training-card-icon">⚡</div>
-                        <h3>HIIT</h3>
-                        <p>Intensive Blöcke mit kurzen Pausen. Maximale Effektivität in minimalem Zeitaufwand.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== PHILOSOPHY ========== -->
-        <section id="philosophy">
-            <div class="container">
-                <h2>Trainingsphilosophie</h2>
-                <p>Die vier Grundprinzipien, auf denen 67Megasport basiert</p>
-
-                <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <div class="philosophy-item-icon">🌧️</div>
-                        <h3>Draussen trainieren – bei jedem Wetter</h3>
-                        <p>Regen oder Sonnenschein – die Natur ist unser Trainingsplatz. Wir nutzen die Elemente, um Körper und Geist zu stärken.</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <div class="philosophy-item-icon">⚡</div>
-                        <h3>Kurze intensive HIIT-Einheiten</h3>
-                        <p>Effektivität über Dauer. Gezielt kurz und hochintensiv für maximale Ergebnisse in wenigen Minuten.</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <div class="philosophy-item-icon">✅</div>
-                        <h3>Saubere Technik vor Geschwindigkeit</h3>
-                        <p>Qualität statt Quantität. Eine perfekte Form ist die Grundlage für langfristigen Erfolg und Vorbeugung von Verletzungen.</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <div class="philosophy-item-icon">🎒</div>
-                        <h3>Low Equipment, High Impact</h3>
-                        <p>Minimales Equipment, maximale Wirkung. Körpergewicht und Natur sind unsere besten Trainingsmittel.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== TRAININGSZEITEN ========== -->
-        <section id="schedule">
-            <div class="container">
-                <h2>Trainingszeiten</h2>
-                <p>Regelmäßige HIIT-Einheiten im wöchentlichen Rhythmus</p>
-
-                <div class="datawrapper-container">
-                    <iframe title="Trainingszeiten" aria-label="Table" id="datawrapper-chart-3ZyWL" src="https://datawrapper.dwcdn.net/3ZyWL/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="260" data-external="1"></iframe>
-                    <script type="text/javascript">
-                        window.addEventListener("message", function(a){
-                            if(void 0!==a.data["datawrapper-height"]){
-                                var e=document.querySelectorAll("iframe");
-                                for(var t in a.data["datawrapper-height"])
-                                    for(var r,i=0;r=e[i];i++)
-                                        if(r.contentWindow===a.source){
-                                            var d=a.data["datawrapper-height"][t]+"px";
-                                            r.style.height=d
-                                        }
-                            }
-                        });
-                    </script>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== DATA ========== -->
-        <section id="data">
-            <div class="container">
-                <h2>Teilnehmerzahlen</h2>
-                <p>Schau dir an, wie unsere 67Megasport-Community kontinuierlich wächst.</p>
-                <button id="dataBtn" class="data-section-button">📊 Teilnehmerzahlen anzeigen</button>
-            </div>
-        </section>
-    </main>
-
-    <!-- ========== MODAL ========== -->
-    <div id="dataModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Teilnehmerzahlen der 67Megasport-Community</h2>
-                <button class="close-btn">&times;</button>
-            </div>
-            <div class="datawrapper-container">
-                <iframe title="Teilnehmerzahlen" aria-label="Table" id="datawrapper-chart-Toiwd" src="https://datawrapper.dwcdn.net/Toiwd/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="325" data-external="1"></iframe>
-                <script type="text/javascript">
-                    window.addEventListener("message", function(a){
-                        if(void 0!==a.data["datawrapper-height"]){
-                            var e=document.querySelectorAll("iframe");
-                            for(var t in a.data["datawrapper-height"])
-                                for(var r,i=0;r=e[i];i++)
-                                    if(r.contentWindow===a.source){
-                                        var d=a.data["datawrapper-height"][t]+"px";
-                                        r.style.height=d
-                                    }
-                        }
-                    });
-                </script>
-            </div>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="head reveal">
+          <div>
+            <h2>Über mich</h2>
+            <p>Kennenlerne Lara B. (25): Gründerin von 67Megasport – Sportwissenschaft-Studentin, Langstreckenläuferin und Marathon-Absolventin.</p>
+          </div>
         </div>
+
+        <div class="grid2">
+          <div class="panel reveal">
+            <h3 style="letter-spacing:-.6px;">Wer ist Lara?</h3>
+            <ul class="list">
+              <li class="li"><div class="icon">🎓</div><div><b>Studium:</b><br/>Sportwissenschaft – Fokus Training & Leistung.</div></li>
+              <li class="li"><div class="icon">🏃</div><div><b>Ausdauer:</b><br/>Langstreckenläuferin & erster Marathon bereits absolviert.</div></li>
+              <li class="li"><div class="icon">⚡</div><div><b>Coaching:</b><br/>Outdoor-HIIT in Liestal – klar, intensiv, motivierend.</div></li>
+              <li class="li"><div class="icon">📍</div><div><b>Ort:</b><br/>Gestadeck, Liestal (Outdoor-Spot).</div></li>
+            </ul>
+            <div class="quote">
+              <p><b>Mission:</b> Ich helfe dir, deinen Körper zu transformieren und mentale Stärke aufzubauen – draussen, intensiv, authentisch.</p>
+              <small>— Lara B., 67Megasport</small>
+            </div>
+          </div>
+
+          <div class="panel reveal">
+            <h3 style="letter-spacing:-.6px;">Warum draussen?</h3>
+            <p style="color:var(--muted); margin-top:8px;">Frische Luft, Fokus, mehr Energie. Outdoor-Training macht dich nicht nur fitter – sondern auch mental tougher.</p>
+
+            <div style="margin-top:14px; display:grid; gap:10px;">
+              <div class="mini" style="padding:16px;"><div class="chip"><span class="dot2"></span> Mehr Fokus</div><p>Weniger Ablenkung, mehr “Work”.</p></div>
+              <div class="mini" style="padding:16px;"><div class="chip"><span class="dot2"></span> Mehr Energie</div><p>Umgebung + frische Luft = Push.</p></div>
+              <div class="mini" style="padding:16px;"><div class="chip"><span class="dot2"></span> Mehr Team</div><p>Community-Feeling statt Solo-Workout.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAINING -->
+    <section id="training">
+      <div class="container">
+        <div class="head reveal">
+          <div>
+            <h2>Das Training</h2>
+            <p>High-Intensity Interval Training + funktionelle Bewegungen. Ziel: Leistung, Fitness und ein Körper, der “funktioniert”.</p>
+          </div>
+        </div>
+
+        <div class="cards3">
+          <div class="mini reveal"><div class="chip"><span class="dot2"></span> Funktional</div><h3>Stark im Alltag</h3><p>Core, Stabilität, Explosivität – mit Übungen, die Sinn machen.</p></div>
+          <div class="mini reveal"><div class="chip"><span class="dot2"></span> Outdoor</div><h3>Gestadeck, Liestal</h3><p>Ein Spot, der motiviert: Natur, Platz, Fokus, Energie.</p></div>
+          <div class="mini reveal"><div class="chip"><span class="dot2"></span> HIIT</div><h3>Maximaler Effekt</h3><p>Kurz, intensiv, smart strukturiert – du spürst den Fortschritt.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy">
+      <div class="container">
+        <div class="head reveal">
+          <div>
+            <h2>Trainingsphilosophie</h2>
+            <p>Vier Prinzipien, die jede Einheit begleiten.</p>
+          </div>
+        </div>
+
+        <div class="philosophy">
+          <div class="phItem reveal"><h3>🌦️ Draussen – bei jedem Wetter</h3><p>Wetter ist kein Stopp-Signal – es ist ein Teil des Trainings. Körper & Kopf werden stärker.</p></div>
+          <div class="phItem reveal"><h3>⚡ Kurz & intensiv</h3><p>Effektiv statt endlos: HIIT mit klarer Struktur für echte Ergebnisse.</p></div>
+          <div class="phItem reveal"><h3>✅ Technik vor Tempo</h3><p>Saubere Ausführung ist non-negotiable: besser trainieren, weniger Risiko.</p></div>
+          <div class="phItem reveal"><h3>🎒 Low Equipment, High Impact</h3><p>Minimal Material – maximal Wirkung: Bodyweight, Intervals, smartes Coaching.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+      <div class="container">
+        <div class="head reveal">
+          <div>
+            <h2>Trainingszeiten</h2>
+            <p>Die aktuellen Zeiten (Datawrapper). Dark Mode ist erzwungen, damit die Schrift weiss ist.</p>
+          </div>
+          <div>
+            <a class="btn btnPrimary" href="teilnehmer.html">📊 Teilnehmerzahlen</a>
+          </div>
+        </div>
+
+        <div class="embed reveal">
+          <div class="embedPad">
+            <iframe
+              title="Trainingszeiten"
+              aria-label="Table"
+              id="datawrapper-chart-3ZyWL"
+              src="https://datawrapper.dwcdn.net/3ZyWL/1/?dark=true"
+              scrolling="no"
+              frameborder="0"
+              style="width: 0; min-width: 100% !important; border: none;"
+              height="270"
+              data-external="1"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="head reveal">
+          <div>
+            <h2>Kontakt</h2>
+            <p>Schreib Lara direkt. (Schulprojekt – das Formular zeigt eine Bestätigung und kann optional per Mailto öffnen.)</p>
+          </div>
+        </div>
+
+        <div class="panel reveal">
+          <form id="contactForm" novalidate>
+            <div class="formGrid">
+              <div class="field">
+                <label for="name">Name *</label>
+                <input id="name" name="name" type="text" placeholder="z.B. Max Muster" required />
+              </div>
+
+              <div class="field">
+                <label for="email">E-Mail *</label>
+                <input id="email" name="email" type="email" placeholder="z.B. max@mail.ch" required />
+              </div>
+
+              <div class="field full">
+                <label for="subject">Betreff</label>
+                <input id="subject" name="subject" type="text" placeholder="z.B. Frage zu Trainingszeiten" />
+              </div>
+
+              <div class="field full">
+                <label for="message">Nachricht *</label>
+                <textarea id="message" name="message" placeholder="Deine Nachricht…" required></textarea>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
+              <button class="btn btnPrimary" type="submit">📨 Nachricht senden</button>
+              <a class="btn" href="mailto:67Megasport@gmail.com">Oder direkt Mail senden</a>
+            </div>
+
+            <div class="formNote">* Pflichtfelder. (Ohne Backend wird nichts gespeichert – perfekt fürs Schulprojekt.)</div>
+            <div id="toast" class="toast"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footGrid">
+        <div class="reveal">
+          <div class="schoolBadge">📚 Schulprojekt (Berufsausbildung)</div>
+          <p style="margin-top:12px;"><b style="color:var(--text);">67Megasport</b> — Outdoor-HIIT Training</p>
+          <p>📍 Gestadeck, Liestal</p>
+        </div>
+
+        <div class="footLink reveal">
+          <p style="font-weight:900; color:rgba(234,241,255,.88)">Kontakt</p>
+          <p style="margin-top:8px;">📧 <a href="mailto:67Megasport@gmail.com">67Megasport@gmail.com</a></p>
+          <p style="margin-top:12px;">© 2026 67Megasport</p>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-        // Modal functionality
-        const modal = document.getElementById("dataModal");
-        const dataBtn = document.getElementById("dataBtn");
-        const closeBtn = document.querySelector(".close-btn");
+  <script>
+    // Scroll progress bar
+    const progress = document.getElementById("progress");
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      progress.style.width = scrolled + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
-        // Open modal
-        dataBtn.onclick = function() {
-            modal.style.display = "block";
-        }
+    // Reveal
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("on"); });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
 
-        // Close modal
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+    // Datawrapper resize (supports multiple iframes)
+    window.addEventListener("message", function (event) {
+      if (event.data && event.data["datawrapper-height"]) {
+        const iframes = document.querySelectorAll("iframe");
+        for (const chartId in event.data["datawrapper-height"]) {
+          for (const iframe of iframes) {
+            if (iframe.contentWindow === event.source) {
+              iframe.style.height = event.data["datawrapper-height"][chartId] + "px";
             }
+          }
         }
-    </script>
-    <footer>
-        <div class="container">
-            <div class="school-notice">
-                📚 Dies ist ein Schulprojekt im Rahmen der Berufsausbildung
-            </div>
-            <p><strong>67Megasport</strong></p>
-            <p>Lara B. | Outdoor-HIIT Training</p>
-            <p>📍 Trainingsort: Gestadeck, Liestal</p>
-            <p style="margin-top: 1rem;">
-                📧 <a href="mailto:67Megasport@gmail.com" style="color: #3498db; text-decoration: none;">67Megasport@gmail.com</a>
-            </p>
-            <p style="margin-top: 1rem; opacity: 0.7;">&copy; 2026 67Megasport. Alle Rechte vorbehalten.</p>
-        </div>
-    </footer>
+      }
+    });
+
+    // Contact form (demo + optional mailto)
+    const form = document.getElementById("contactForm");
+    const toast = document.getElementById("toast");
+
+    function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim() || "Kontaktanfrage 67Megasport";
+      const message = document.getElementById("message").value.trim();
+
+      if(!name || !email || !message || !isValidEmail(email)){
+        toast.style.display = "block";
+        toast.style.borderColor = "rgba(255,77,109,.35)";
+        toast.style.background = "rgba(255,77,109,.12)";
+        toast.textContent = "⚠️ Bitte Name, gültige E-Mail und Nachricht ausfüllen.";
+        return;
+      }
+
+      toast.style.display = "block";
+      toast.style.borderColor = "rgba(0,229,168,.28)";
+      toast.style.background = "rgba(0,229,168,.10)";
+      toast.textContent = "✅ Danke! Demo-Nachricht erstellt – ich öffne jetzt dein Mail-Programm.";
+
+      const body = encodeURIComponent(
+        `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}\n\n(Hinweis: Schulprojekt-Website)`
+      );
+      const mailto = `mailto:67Megasport@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      setTimeout(() => { window.location.href = mailto; }, 900);
+      form.reset();
+    });
+  </script>
 </body>
 </html>
